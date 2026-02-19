@@ -1,0 +1,176 @@
+{
+  "Landing": {
+    "meta": {
+      "title": "3DPrint ERP — 3D Print Management System",
+      "description": "All-in-one ERP system for 3D printing businesses: orders, production, shipping, and analytics"
+    },
+    "nav": {
+      "features": "Features",
+      "integrations": "Integrations",
+      "howItWorks": "How it works",
+      "login": "Sign In",
+      "tryFree": "Try Free",
+      "dashboard": "Dashboard"
+    },
+    "hero": {
+      "title": "Manage your 3D print shop without chaos",
+      "subtitle": "Generalized UI example: orders, production queue, and statuses in real time.",
+      "ctaPrimary": "Try for free",
+      "ctaSecondary": "Learn more ↓",
+      "trustLine": "Built for Ukrainian 3D printing businesses",
+      "panelTitle": "Recent orders"
+    },
+    "painPoints": {
+      "title": "Sound familiar?",
+      "card1": {
+        "title": "Excel instead of ERP",
+        "description": "Statuses get mixed up, order details get lost between spreadsheets and messengers"
+      },
+      "card2": {
+        "title": "Manual payment tracking",
+        "description": "Who paid? For which order? Where's the money? A daily puzzle"
+      },
+      "card3": {
+        "title": "Shipping chaos",
+        "description": "You create tracking numbers manually, shipment status is unknown until the customer calls"
+      },
+      "card4": {
+        "title": "Print queue in your head",
+        "description": "What to print next, what's already done — all the info exists only in your head"
+      }
+    },
+    "features": {
+      "title": "One system — full control",
+      "subtitle": "Everything you need to manage a 3D print shop",
+      "card1": {
+        "title": "Orders",
+        "description": "Create, edit, and track orders from any device. Statuses update automatically."
+      },
+      "card2": {
+        "title": "Payments",
+        "description": "Track payments, partial payments, and debts. Always know who paid and how much."
+      },
+      "card3": {
+        "title": "Shipping",
+        "description": "Create Nova Poshta and UkrPoshta tracking numbers in one click. Automatic status tracking."
+      },
+      "card4": {
+        "title": "Inventory & materials",
+        "description": "Track filaments, components, and finished goods. Alerts when stock runs low."
+      },
+      "card5": {
+        "title": "3D Printers",
+        "description": "Print queue with priorities, distribution across printers, progress tracking for each job."
+      },
+      "card6": {
+        "title": "Analytics",
+        "description": "Dashboards with key metrics: revenue, orders, printer utilization, popular products."
+      }
+    },
+    "howItWorks": {
+      "title": "Get started in 3 steps",
+      "step1": {
+        "title": "Sign in",
+        "description": "Get access to the system in one minute"
+      },
+      "step2": {
+        "title": "Configure",
+        "description": "Add your products"
+      },
+      "step3": {
+        "title": "Start working",
+        "description": "Accept orders and manage production"
+      }
+    },
+    "deepDive": {
+      "title": "Deep dive into key modules",
+      "orders": {
+        "label": "Production",
+        "title": "Production queue with aggregated products",
+        "description": "Connect Bambu Lab printers. Real-time status monitoring."
+      },
+      "payments": {
+        "label": "Payments",
+        "title": "Payments find their orders automatically",
+        "description": "Automatic matching of Monobank payments with orders. See who paid, for what, and how much is left — no manual checking."
+      },
+      "shipping": {
+        "label": "Shipping",
+        "title": "Nova Poshta right from ERP",
+        "description": "Create Nova Poshta and UkrPoshta tracking numbers in one click. Automatic delivery status tracking without switching to other services."
+      }
+    },
+    "integrations": {
+      "title": "Works with what you already use",
+      "card1": {
+        "title": "Monobank",
+        "description": "Automatic payment acceptance and webhook notifications"
+      },
+      "card2": {
+        "title": "Nova Poshta",
+        "description": "Create tracking numbers, find offices, track parcels"
+      },
+      "card3": {
+        "title": "Ukrposhta",
+        "description": "Delivery across Ukraine and beyond"
+      },
+      "card4": {
+        "title": "Bambu Lab",
+        "description": "3D printer monitoring"
+      }
+    },
+    "whyUs": {
+      "title": "Why 3DPrint ERP?",
+      "card1": {
+        "title": "For Ukraine",
+        "description": "Built for the Ukrainian market with support for UAH, Nova Poshta, and Monobank"
+      },
+      "card2": {
+        "title": "Secure",
+        "description": "Data stored on protected servers with encryption and regular backups"
+      },
+      "card3": {
+        "title": "Modern",
+        "description": "Intuitive interface that works on any device — desktop, tablet, phone"
+      },
+      "card4": {
+        "title": "Quick start",
+        "description": "Start working in minutes — no complex setup or training required"
+      }
+    },
+    "cta": {
+      "title": "Ready to bring order to your 3D print shop?",
+      "subtitle": "Try 3DPrint ERP today",
+      "button": "Try for free",
+      "trustLine": "For 3D printing businesses"
+    },
+    "footer": {
+      "copyright": "© 2026 3DPrint ERP. Built for 3D printing businesses in Ukraine."
+    }
+  },
+  "Auth": {
+    "login": "Login",
+    "loginSubtitle": "Sign in to your account",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "invalidCredentials": "Invalid email or password",
+    "trustLine": "for 3D printing businesses in Ukraine"
+  },
+  "TryPage": {
+    "meta": {
+      "title": "Try it — 3DPrint ERP",
+      "description": "Leave your email to get access to 3DPrint ERP"
+    },
+    "title": "Try for free",
+    "description": "Leave your email and we'll give you access to the system",
+    "emailPlaceholder": "Your email",
+    "submitButton": "Request access",
+    "submitting": "Submitting…",
+    "successTitle": "Request sent!",
+    "successDescription": "We'll get back to you shortly",
+    "alreadySubmitted": "This email is already registered. We'll contact you soon.",
+    "error": "Something went wrong. Please try again.",
+    "privacyNote": "We don't send spam. Only system invitations."
+  }
+}

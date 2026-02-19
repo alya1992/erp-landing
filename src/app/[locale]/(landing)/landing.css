@@ -1,0 +1,11 @@
+/* Landing page scoped styles */
+
+/* Override --font-sans to Inter within landing scope */
+.landing-wrapper {
+  --font-sans: var(--font-inter);
+}
+
+/* Smooth scroll for anchor navigation — must be on the scroll container */
+html:has(.landing-wrapper) {
+  scroll-behavior: smooth;
+}

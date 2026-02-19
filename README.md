@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3DPrint ERP — Landing Page
 
-## Getting Started
+Standalone landing page for 3DPrint ERP, extracted for designer collaboration.
 
-First, run the development server:
+## Tech Stack
+
+- **Next.js 16** (App Router, Turbopack)
+- **React 19**
+- **TypeScript 5**
+- **Tailwind CSS v4** (`@tailwindcss/postcss`)
+- **next-intl** — i18n (uk/en, default: uk)
+- **lucide-react** — icons
+- **react-hook-form + zod** — login form validation
+
+## Quick Start
 
 ```bash
+# 1. Install dependencies (--include=dev is required if npm has omit=dev in config)
+npm install --include=dev
+
+# 2. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dev server runs at **http://localhost:3000**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Description |
+|---|---|
+| `/` (`/uk`, `/en`) | Main landing page — 8 sections (hero, pain points, features, how it works, deep dive, integrations, why us, CTA) |
+| `/login` (`/uk/login`, `/en/login`) | Login form (visual stub, no real auth backend) |
+| `/try` (`/uk/try`, `/en/try`) | Request access form (stub, logs to console) |
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/
+│   ├── layout.tsx                    # Root layout (Poppins font, metadata)
+│   ├── globals.css                   # Tailwind v4 import
+│   └── [locale]/
+│       ├── layout.tsx                # Locale layout (NextIntlClientProvider)
+│       ├── (landing)/
+│       │   ├── layout.tsx            # Landing layout (Inter font, header + footer, gradient bg)
+│       │   ├── landing.css           # Landing-scoped CSS
+│       │   ├── page.tsx              # Main landing page
+│       │   └── try/page.tsx          # Request access page
+│       └── (auth)/
+│           ├── layout.tsx            # Auth layout (gradient bg, centered, logo top-left)
+│           └── login/page.tsx        # Login page
+├── components/landing/               # All landing section components
+│   ├── landing-header.tsx            # Sticky header with nav, lang switcher, login/try buttons
+│   ├── landing-footer.tsx            # Footer
+│   ├── landing-container.tsx         # Max-width container (1060px/1360px)
+│   ├── landing-section.tsx           # Section wrapper with bg variants
+│   ├── hero-section.tsx              # Hero with mock orders table
+│   ├── pain-points-section.tsx       # 4 pain-point cards
+│   ├── features-section.tsx          # 6 feature cards
+│   ├── how-it-works-section.tsx      # 3-step flow
+│   ├── deep-dive-section.tsx         # 3 module deep-dives with mock visuals
+│   ├── integrations-section.tsx      # 4 integration cards (Monobank, NP, UP, Bambu)
+│   ├── why-us-section.tsx            # 4 value-prop cards
+│   ├── cta-section.tsx               # Final CTA
+│   ├── mobile-menu.tsx               # Mobile hamburger menu (client component)
+│   └── request-access-form.tsx       # Email form on /try (client component, stub)
+├── i18n/
+│   ├── routing.ts                    # Locale routing config
+│   ├── navigation.ts                 # i18n-aware Link, redirect, etc.
+│   └── request.ts                    # Server-side i18n config
+├── lib/
+│   └── utils.ts                      # cn() helper (clsx + tailwind-merge)
+└── middleware.ts                      # Locale detection middleware
+messages/
+├── uk.json                           # Ukrainian translations (default)
+└── en.json                           # English translations
+public/logo/                          # Logos (ERP, Monobank, NP, Ukrposhta, Bambu Lab)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## i18n
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Default locale: `uk` (Ukrainian)
+- Available: `uk`, `en`
+- Translation files: `messages/uk.json`, `messages/en.json`
+- Namespaces: `Landing`, `Auth`, `TryPage`
 
-## Deploy on Vercel
+## Design Tokens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Token | Value |
+|---|---|
+| Primary green | `#6AA570` |
+| Green hover | `#5A9460` |
+| Dark text | `#1F2937` |
+| Muted text | `#6B7280` |
+| Warm border | `#E9DCC6` |
+| Warm bg | `#FFF7E8` |
+| Accent copper | `#BF9773` |
+| Page gradient | `#FFF9F2 → #FFFDF8 → #F7FAFF` |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Fonts
+
+- **Poppins** — headings, logo, branding
+- **Inter** — body text within landing and auth pages
+
+## Notes
+
+- All forms are **visual stubs** — no backend, no database, no API routes
+- The login form validates inputs client-side but always shows "invalid credentials" on submit
+- The request access form logs to console and shows success state
+- Header "Login" button links to `/login`
+- This project mirrors the landing from the main ERP app (`sonyasha.erp`) for designer handoff
