@@ -127,7 +127,7 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
                   <Link
                     href="/try"
                     onClick={close}
-                    className="rounded-[10px] bg-[#6AA570] px-5 py-2.5 text-center text-sm font-bold text-[#1F3D2A]"
+                    className="btn-primary rounded-[10px] bg-[#6AA570] px-5 py-2.5 text-center text-sm font-bold text-white"
                   >
                     {t('nav.tryFree')}
                   </Link>

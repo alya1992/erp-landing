@@ -17,41 +17,66 @@ export async function LandingFooter() {
   ];
 
   return (
-    <footer className="bg-[#F6FCF7] py-6">
+    <footer className="bg-[#F6FCF7] py-12">
       <LandingContainer>
-        {/* Top row */}
-        <div className="flex flex-col items-center gap-6 lg:flex-row lg:justify-between">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[#1F2937]"
-          >
-            3DPrint<span className="text-[#6AA570]">ERP</span>
-          </Link>
-
-          {/* Nav + language */}
-          <div className="flex flex-wrap items-center gap-7">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-[15px] text-[#6B7280] transition-colors hover:text-[#1F2937]"
-              >
-                {link.label}
-              </a>
-            ))}
+        {/* Three-column layout */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+          {/* Column 1: Logo + description */}
+          <div>
             <Link
               href="/"
-              locale={otherLocale}
-              className="text-[15px] text-[#6B7280] transition-colors hover:text-[#1F2937]"
+              className="font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[#1F2937]"
             >
-              {otherLocale.toUpperCase()}
+              3DPrint<span className="text-[#6AA570]">ERP</span>
             </Link>
+            <p className="mt-3 text-sm leading-relaxed text-[#6B7280]">
+              {t('footer.description')}
+            </p>
+          </div>
+
+          {/* Column 2: Navigation */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-[#1F2937]">
+              {t('footer.navigationTitle')}
+            </p>
+            <nav className="mt-4 flex flex-col gap-2.5">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-[15px] text-[#6B7280] transition-colors hover:text-[#1F2937]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+
+          {/* Column 3: Actions + language */}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-wider text-[#1F2937]">
+              {t('footer.actionsTitle')}
+            </p>
+            <div className="mt-4 flex flex-col gap-2.5">
+              <Link
+                href="/try"
+                className="btn-primary inline-flex w-fit items-center gap-2 rounded-lg bg-[#6AA570] px-5 py-2.5 text-sm font-bold text-white hover:bg-[#5A9460]"
+              >
+                {t('nav.tryFree')}
+              </Link>
+              <Link
+                href="/"
+                locale={otherLocale}
+                className="text-[15px] text-[#6B7280] transition-colors hover:text-[#1F2937]"
+              >
+                {otherLocale.toUpperCase()}
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="my-6 border-t border-[#E9DCC6]" />
+        <div className="my-8 border-t border-[#E9DCC6]" />
 
         {/* Copyright */}
         <p className="text-center text-sm text-[#6B7280]">

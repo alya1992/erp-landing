@@ -14,10 +14,10 @@
     },
     "hero": {
       "title": "Manage your 3D print shop without chaos",
-      "subtitle": "Generalized UI example: orders, production queue, and statuses in real time.",
+      "subtitle": "Orders, costing, auto-matching payments, Nova Poshta, Bambu Lab — all in one system.",
       "ctaPrimary": "Try for free",
       "ctaSecondary": "Learn more ↓",
-      "trustLine": "Built for Ukrainian 3D printing businesses",
+      "trustLine": "Monobank + Nova Poshta + Bambu Lab | Built for Ukrainian 3D printing",
       "panelTitle": "Recent orders"
     },
     "painPoints": {
@@ -37,6 +37,14 @@
       "card4": {
         "title": "Print queue in your head",
         "description": "What to print next, what's already done — all the info exists only in your head"
+      },
+      "card5": {
+        "title": "Unknown production costs",
+        "description": "Electricity, printer wear, filament, labor — how much does one product really cost? Without precise calculation you're pricing blindly"
+      },
+      "card6": {
+        "title": "\"Where do I pay?\"",
+        "description": "Customer asks for payment details — you look up the IBAN, format the payment reference, then manually check if the money arrived"
       }
     },
     "features": {
@@ -65,6 +73,14 @@
       "card6": {
         "title": "Analytics",
         "description": "Dashboards with key metrics: revenue, orders, printer utilization, popular products."
+      },
+      "card7": {
+        "title": "Cost calculator",
+        "description": "Automatic cost calculation: filament, electricity, printer wear, components, labor. Recommended price by target margin."
+      },
+      "card8": {
+        "title": "PDF & payment links",
+        "description": "Generate PDF invoices and public payment links with QR codes compatible with any bank (NBU standard)."
       }
     },
     "howItWorks": {
@@ -87,17 +103,26 @@
       "orders": {
         "label": "Production",
         "title": "Production queue with aggregated products",
-        "description": "Connect Bambu Lab printers. Real-time status monitoring."
+        "description": "Connect Bambu Lab printers. Real-time status monitoring.",
+        "panelTitle": "Production queue"
       },
       "payments": {
         "label": "Payments",
         "title": "Payments find their orders automatically",
-        "description": "Automatic matching of Monobank payments with orders. See who paid, for what, and how much is left — no manual checking."
+        "description": "Automatic matching of Monobank payments with orders. See who paid, for what, and how much is left — no manual checking.",
+        "panelTitle": "Payment auto-matching"
       },
       "shipping": {
         "label": "Shipping",
         "title": "Nova Poshta right from ERP",
-        "description": "Create Nova Poshta and UkrPoshta tracking numbers in one click. Automatic delivery status tracking without switching to other services."
+        "description": "Create Nova Poshta and UkrPoshta tracking numbers in one click. Automatic delivery status tracking without switching to other services.",
+        "panelTitle": "Shipment tracking"
+      },
+      "costing": {
+        "label": "Pricing",
+        "title": "Know the real cost of every product",
+        "description": "Automatic cost calculation including filament, electricity, printer wear, labor, and components. Recommended price by target margin.",
+        "panelTitle": "Cost calculator"
       }
     },
     "integrations": {
@@ -142,10 +167,13 @@
       "title": "Ready to bring order to your 3D print shop?",
       "subtitle": "Try 3DPrint ERP today",
       "button": "Try for free",
-      "trustLine": "For 3D printing businesses"
+      "trustLine": "Monobank + Nova Poshta + Bambu Lab | For 3D printing businesses"
     },
     "footer": {
-      "copyright": "© 2026 3DPrint ERP. Built for 3D printing businesses in Ukraine."
+      "copyright": "© 2026 3DPrint ERP.",
+      "description": "All-in-one ERP system for 3D printing businesses in Ukraine.",
+      "navigationTitle": "Navigation",
+      "actionsTitle": "Get started"
     }
   },
   "Auth": {
@@ -167,6 +195,9 @@
     "emailPlaceholder": "Your email",
     "submitButton": "Request access",
     "submitting": "Submitting…",
+    "benefit1": "Set up in minutes",
+    "benefit2": "Secure data storage",
+    "benefit3": "Free trial period",
     "successTitle": "Request sent!",
     "successDescription": "We'll get back to you shortly",
     "alreadySubmitted": "This email is already registered. We'll contact you soon.",

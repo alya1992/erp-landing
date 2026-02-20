@@ -2,9 +2,9 @@ import { cn } from '@/lib/utils';
 
 const bgVariants = {
   transparent: '',
-  'pain-points': 'bg-[#F4FBF5]',
-  'how-it-works': 'bg-[#F2FAF3]',
-  integrations: 'bg-[#F8F2FF]',
+  'pain-points': 'bg-gradient-to-b from-[#F4FBF5] to-[#EEF7EF]',
+  'how-it-works': 'bg-gradient-to-br from-[#F2FAF3] to-[#F0F6F1]',
+  integrations: 'bg-gradient-to-b from-[#F8F2FF] to-[#F3EDFA]',
   footer: 'bg-[#F6FCF7]',
 } as const;
 

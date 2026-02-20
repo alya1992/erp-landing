@@ -34,11 +34,15 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         }}
       />
 
+      {/* Decorative blurred circles */}
+      <div className="pointer-events-none fixed -left-32 top-1/4 size-96 rounded-full bg-[#6AA570]/5 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none fixed -right-32 bottom-1/4 size-96 rounded-full bg-[#8B5CF6]/5 blur-3xl" aria-hidden="true" />
+
       {/* Logo top-left */}
       <div className="relative z-10 px-6 pt-5">
         <Link
           href="/"
-          className="font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[#1F2937]"
+          className="inline-flex items-center gap-2 font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[#1F2937] transition-opacity hover:opacity-80"
         >
           3DPrint<span className="text-[#6AA570]">ERP</span>
         </Link>

@@ -58,7 +58,7 @@ export function RequestAccessForm() {
       <button
         type="submit"
         disabled={isPending}
-        className="inline-flex items-center justify-center gap-2 rounded-[11px] bg-[#6AA570] px-7 py-4 text-xl font-bold text-[#1F3D2A] transition-colors hover:bg-[#5A9460] disabled:opacity-60"
+        className="btn-primary inline-flex items-center justify-center gap-2 rounded-[11px] bg-[#6AA570] px-7 py-4 text-xl font-bold text-white hover:bg-[#5A9460] disabled:opacity-60"
       >
         {isPending ? t('submitting') : t('submitButton')}
       </button>

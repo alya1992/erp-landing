@@ -9,3 +9,118 @@
 html:has(.landing-wrapper) {
   scroll-behavior: smooth;
 }
+
+/* === Scroll-triggered reveal system === */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Staggered children */
+.reveal-stagger .reveal-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.reveal-stagger.is-visible .reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-stagger.is-visible .reveal-item:nth-child(1) { transition-delay: 0ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(2) { transition-delay: 100ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(3) { transition-delay: 200ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(4) { transition-delay: 300ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(5) { transition-delay: 400ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(6) { transition-delay: 500ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(7) { transition-delay: 600ms; }
+.reveal-stagger.is-visible .reveal-item:nth-child(8) { transition-delay: 700ms; }
+
+/* === Card hover system === */
+.card-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-hover:hover {
+  box-shadow: 0 12px 32px rgba(31, 41, 55, 0.1), 0 4px 12px rgba(31, 41, 55, 0.06);
+  transform: translateY(-3px);
+}
+
+/* === Button micro-interactions === */
+.btn-primary {
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 16px rgba(106, 165, 112, 0.35);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* === Icon containers === */
+.icon-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+.icon-container--green {
+  background-color: rgba(106, 165, 112, 0.1);
+}
+.icon-container--copper {
+  background-color: rgba(191, 151, 115, 0.1);
+}
+.icon-container--muted {
+  background-color: rgba(107, 114, 128, 0.08);
+}
+
+/* === Focus ring === */
+.landing-wrapper a:focus-visible,
+.landing-wrapper button:focus-visible {
+  outline: 2px solid #6AA570;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* === Reduced motion overrides === */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-stagger .reveal-item {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .card-hover:hover {
+    transform: none;
+  }
+  .btn-primary:hover,
+  .btn-primary:active {
+    transform: none;
+  }
+}

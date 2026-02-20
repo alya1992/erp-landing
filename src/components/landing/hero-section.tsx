@@ -64,7 +64,10 @@ export async function HeroSection() {
       {/* Desktop — absolute positioning matching Pencil layout */}
       <div className="relative mx-auto hidden h-[760px] max-w-[1200px] px-5 lg:block xl:h-[860px] xl:max-w-[1360px]" aria-hidden="true">
         {/* Text + CTAs — top-left */}
-        <div className="absolute left-5 top-[72px] z-20 w-[380px] xl:w-[440px]">
+        <div
+          className="absolute left-5 top-[72px] z-20 w-[380px] xl:w-[440px]"
+          style={{ animation: 'fade-in-up 0.7s ease-out both' }}
+        >
           <p className="font-[family-name:var(--font-poppins)] text-[44px] font-bold leading-[1.02] text-[#1F2937] xl:text-[56px]">
             {t('hero.title')}
           </p>
@@ -74,23 +77,26 @@ export async function HeroSection() {
           <div className="mt-7 flex flex-wrap items-center gap-3">
             <Link
               href="/try"
-              className="inline-flex items-center gap-2 rounded-[11px] bg-[#6AA570] px-6 py-3.5 text-lg font-bold text-[#1F3D2A] transition-colors hover:bg-[#5A9460]"
+              className="btn-primary inline-flex items-center gap-2 rounded-[11px] bg-[#6AA570] px-6 py-3.5 text-lg font-bold text-white hover:bg-[#5A9460]"
             >
               {t('hero.ctaPrimary')}
             </Link>
             <a
               href="#features"
-              className="inline-flex items-center gap-2 rounded-[11px] border border-[#E9DCC6] bg-white px-6 py-3.5 text-lg font-semibold text-[#1F2937] transition-colors hover:border-[#D4C5AA]"
+              className="inline-flex items-center gap-2 rounded-[11px] border border-[#E9DCC6] bg-white px-6 py-3.5 text-lg font-semibold text-[#1F2937] transition-all hover:border-[#D4C5AA] hover:shadow-md"
             >
               {t('hero.ctaSecondary')}
             </a>
           </div>
+          <p className="mt-5 text-sm text-[#6B7280]">
+            {t('hero.trustLine')}
+          </p>
         </div>
 
         {/* Orders panel — top-right, FRONT layer */}
         <div
           className="absolute right-5 top-[58px] z-10 w-[620px] rounded-[14px] border border-[#E9DCC6] bg-white p-[14px] xl:w-[700px]"
-          style={{ boxShadow: '0 20px 38px #15152229' }}
+          style={{ boxShadow: '0 20px 38px #15152229', animation: 'slide-in-right 0.8s ease-out 0.2s both' }}
         >
           <h2 className="mb-2 text-lg font-bold text-[#1F2937]">
             {t('hero.panelTitle')}
@@ -98,17 +104,17 @@ export async function HeroSection() {
 
           {/* Header */}
           <div className="flex items-center rounded-[7px] bg-[#F3F8F4] px-2 py-1.5">
-            <span className="w-[28px] text-[10px] font-semibold text-[#6B7280]">ID</span>
-            <span className="w-[80px] text-[10px] font-semibold text-[#6B7280]">Клієнт</span>
-            <span className="w-[90px] text-[10px] font-semibold text-[#6B7280]">Статус</span>
-            <span className="w-[32px] text-[10px] font-semibold text-[#6B7280]">Зниж.</span>
-            <span className="w-[56px] text-right text-[10px] font-semibold text-[#6B7280]">Сума</span>
-            <span className="w-[40px] text-center text-[10px] font-semibold text-[#6B7280]">Опл.</span>
-            <span className="w-[56px] text-right text-[10px] font-semibold text-[#6B7280]">Друк</span>
-            <span className="w-[80px] pl-2 text-[10px] font-semibold text-[#6B7280]">ТТН</span>
-            <span className="w-[52px] pl-1 text-[10px] font-semibold text-[#6B7280]">Дост.</span>
-            <span className="w-[28px] text-center text-[10px] font-semibold text-[#6B7280]">Поз.</span>
-            <span className="w-[38px] text-right text-[10px] font-semibold text-[#6B7280]">Дата</span>
+            <span className="w-[28px] text-[11px] font-semibold text-[#6B7280]">ID</span>
+            <span className="w-[80px] text-[11px] font-semibold text-[#6B7280]">Клієнт</span>
+            <span className="w-[90px] text-[11px] font-semibold text-[#6B7280]">Статус</span>
+            <span className="w-[32px] text-[11px] font-semibold text-[#6B7280]">Зниж.</span>
+            <span className="w-[56px] text-right text-[11px] font-semibold text-[#6B7280]">Сума</span>
+            <span className="w-[40px] text-center text-[11px] font-semibold text-[#6B7280]">Опл.</span>
+            <span className="w-[56px] text-right text-[11px] font-semibold text-[#6B7280]">Друк</span>
+            <span className="w-[80px] pl-2 text-[11px] font-semibold text-[#6B7280]">ТТН</span>
+            <span className="w-[52px] pl-1 text-[11px] font-semibold text-[#6B7280]">Дост.</span>
+            <span className="w-[28px] text-center text-[11px] font-semibold text-[#6B7280]">Поз.</span>
+            <span className="w-[38px] text-right text-[11px] font-semibold text-[#6B7280]">Дата</span>
           </div>
 
           {/* Rows */}
@@ -118,25 +124,25 @@ export async function HeroSection() {
                 key={row.id}
                 className="flex h-[32px] items-center rounded-[6px] border border-[#E9DCC6] bg-white px-2"
               >
-                <span className="w-[28px] text-[10px] font-semibold text-[#6B7280]">{row.id}</span>
-                <span className="w-[80px] truncate text-[10px] font-medium text-[#1F2937]">{row.client}</span>
+                <span className="w-[28px] text-[11px] font-semibold text-[#6B7280]">{row.id}</span>
+                <span className="w-[80px] truncate text-[11px] font-medium text-[#1F2937]">{row.client}</span>
                 <span className="w-[90px]">
                   <span className={`inline-block rounded-full border px-1.5 py-px text-[9px] font-semibold ${row.st}`}>
                     {row.status}
                   </span>
                 </span>
-                <span className="w-[32px] text-[10px] text-[#6B7280]">{row.disc !== '0' ? `${row.disc}%` : '—'}</span>
-                <span className="w-[56px] text-right text-[10px] font-semibold text-[#1F2937]">{row.amount}</span>
-                <span className="w-[40px] text-center text-[10px] text-[#6B7280]">
+                <span className="w-[32px] text-[11px] text-[#6B7280]">{row.disc !== '0' ? `${row.disc}%` : '—'}</span>
+                <span className="w-[56px] text-right text-[11px] font-semibold text-[#1F2937]">{row.amount}</span>
+                <span className="w-[40px] text-center text-[11px] text-[#6B7280]">
                   {row.pay === PAY.paid ? <span className="text-[#1E8757]">✓</span> : row.pay === PAY.partial ? row.pay : '—'}
                 </span>
-                <span className="w-[56px] text-right text-[10px] text-[#6B7280]">{row.print}</span>
-                <span className="w-[80px] truncate pl-2 text-[10px] text-[#6B7280]">{row.ttn}</span>
-                <span className="w-[52px] pl-1 text-[10px]">
+                <span className="w-[56px] text-right text-[11px] text-[#6B7280]">{row.print}</span>
+                <span className="w-[80px] truncate pl-2 text-[11px] text-[#6B7280]">{row.ttn}</span>
+                <span className="w-[52px] pl-1 text-[11px]">
                   {row.del ? <span className={row.del.cls}>{row.del.label}</span> : '—'}
                 </span>
-                <span className="w-[28px] text-center text-[10px] text-[#6B7280]">{row.items}</span>
-                <span className="w-[38px] text-right text-[10px] text-[#6B7280]">{row.date}</span>
+                <span className="w-[28px] text-center text-[11px] text-[#6B7280]">{row.items}</span>
+                <span className="w-[38px] text-right text-[11px] text-[#6B7280]">{row.date}</span>
               </div>
             ))}
           </div>
@@ -145,7 +151,7 @@ export async function HeroSection() {
         {/* Client panel — bottom-left, BACK layer */}
         <div
           className="absolute bottom-0 left-5 z-0 w-[700px] rounded-[14px] border border-[#E9DCC6] bg-white p-[18px] xl:w-[800px]"
-          style={{ boxShadow: '0 22px 40px #15152222' }}
+          style={{ boxShadow: '0 22px 40px #15152222', animation: 'fade-in-up 0.9s ease-out 0.4s both' }}
         >
           <p className="mb-3 text-[17px] font-bold text-[#1F2937]">
             Шевченко Дмитро
@@ -191,27 +197,54 @@ export async function HeroSection() {
         </div>
       </div>
 
-      {/* Mobile — text only */}
-      <div className="px-5 py-14 text-center lg:hidden">
-        <p className="font-[family-name:var(--font-poppins)] text-4xl font-bold leading-[1.05] text-[#1F2937]" aria-hidden="true">
-          {t('hero.title')}
-        </p>
-        <p className="mt-5 text-lg text-[#6B7280]">
-          {t('hero.subtitle')}
-        </p>
-        <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/try"
-            className="inline-flex items-center gap-2 rounded-[11px] bg-[#6AA570] px-6 py-3.5 text-lg font-bold text-[#1F3D2A] transition-colors hover:bg-[#5A9460]"
-          >
-            {t('hero.ctaPrimary')}
-          </Link>
-          <a
-            href="#features"
-            className="inline-flex items-center gap-2 rounded-[11px] border border-[#E9DCC6] bg-white px-6 py-3.5 text-lg font-semibold text-[#1F2937] transition-colors hover:border-[#D4C5AA]"
-          >
-            {t('hero.ctaSecondary')}
-          </a>
+      {/* Mobile — text + condensed product visual */}
+      <div className="px-5 py-14 lg:hidden">
+        <div className="text-center">
+          <p className="font-[family-name:var(--font-poppins)] text-4xl font-bold leading-[1.05] text-[#1F2937]" aria-hidden="true">
+            {t('hero.title')}
+          </p>
+          <p className="mt-5 text-lg text-[#6B7280]">
+            {t('hero.subtitle')}
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
+            <Link
+              href="/try"
+              className="btn-primary inline-flex items-center gap-2 rounded-[11px] bg-[#6AA570] px-6 py-3.5 text-lg font-bold text-white hover:bg-[#5A9460]"
+            >
+              {t('hero.ctaPrimary')}
+            </Link>
+            <a
+              href="#features"
+              className="inline-flex items-center gap-2 rounded-[11px] border border-[#E9DCC6] bg-white px-6 py-3.5 text-lg font-semibold text-[#1F2937] transition-all hover:border-[#D4C5AA] hover:shadow-md"
+            >
+              {t('hero.ctaSecondary')}
+            </a>
+          </div>
+          <p className="mt-5 text-sm text-[#6B7280]">
+            {t('hero.trustLine')}
+          </p>
+        </div>
+
+        {/* Condensed mobile product visual */}
+        <div className="mt-10 rounded-[14px] border border-[#E9DCC6] bg-white p-4 shadow-lg">
+          <p className="mb-2 text-base font-bold text-[#1F2937]">
+            {t('hero.panelTitle')}
+          </p>
+          <div className="flex flex-col gap-1.5">
+            {orderRows.slice(0, 4).map((row) => (
+              <div
+                key={row.id}
+                className="flex items-center justify-between rounded-lg border border-[#E9DCC6]/60 bg-white px-3 py-2"
+              >
+                <span className="text-xs font-semibold text-[#6B7280]">#{row.id}</span>
+                <span className="text-xs font-medium text-[#1F2937]">{row.client}</span>
+                <span className={`inline-block rounded-full border px-2 py-px text-[10px] font-semibold ${row.st}`}>
+                  {row.status}
+                </span>
+                <span className="text-xs font-semibold text-[#1F2937]">{row.amount}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </LandingSection>

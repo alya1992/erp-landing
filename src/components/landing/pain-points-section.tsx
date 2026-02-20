@@ -1,13 +1,16 @@
 import { getTranslations } from 'next-intl/server';
-import { Table2, Wallet, Truck, Workflow } from 'lucide-react';
+import { Table2, Wallet, Truck, Workflow, Calculator, CreditCard } from 'lucide-react';
 import { LandingContainer } from './landing-container';
 import { LandingSection } from './landing-section';
+import { ScrollReveal } from './scroll-reveal';
 
 const cards = [
   { key: 'card1', Icon: Table2 },
   { key: 'card2', Icon: Wallet },
   { key: 'card3', Icon: Truck },
   { key: 'card4', Icon: Workflow },
+  { key: 'card5', Icon: Calculator },
+  { key: 'card6', Icon: CreditCard },
 ] as const;
 
 export async function PainPointsSection() {
@@ -16,26 +19,31 @@ export async function PainPointsSection() {
   return (
     <LandingSection id="pain-points" bg="pain-points">
       <LandingContainer>
-        <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
-          {t('painPoints.title')}
-        </h2>
+        <ScrollReveal>
+          <div className="mx-auto mb-3 h-1 w-12 rounded-full bg-[#BF9773]" />
+          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
+            {t('painPoints.title')}
+          </h2>
+        </ScrollReveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <ScrollReveal variant="reveal-stagger" className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {cards.map(({ key, Icon }) => (
             <div
               key={key}
-              className="h-[220px] rounded-[14px] border border-[#E9DCC6] bg-[#FFF7E8] p-5"
+              className="reveal-item card-hover min-h-[200px] rounded-[14px] border border-[#E9DCC6] bg-[#FFF7E8] p-6 shadow-sm"
             >
-              <Icon className="size-8 text-[#6B7280]" aria-hidden="true" />
+              <div className="icon-container icon-container--muted size-12">
+                <Icon className="size-6 text-[#6B7280]" aria-hidden="true" />
+              </div>
               <h3 className="mt-4 text-lg font-bold text-[#1F2937]">
                 {t(`painPoints.${key}.title`)}
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.45] text-[#6B7280]">
+              <p className="mt-2 text-base leading-[1.5] text-[#6B7280]">
                 {t(`painPoints.${key}.description`)}
               </p>
             </div>
           ))}
-        </div>
+        </ScrollReveal>
       </LandingContainer>
     </LandingSection>
   );

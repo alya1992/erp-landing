@@ -19,7 +19,7 @@ export async function LandingHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#EEDFC7] bg-[#FFFFFFD9] backdrop-blur-[10px]">
+    <header className="sticky top-0 z-50 border-b border-[#EEDFC7]/60 bg-white/75 shadow-[0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-xl">
       <LandingContainer className="flex h-[84px] items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[30px] font-bold leading-none text-[#1F2937]">
@@ -53,13 +53,13 @@ export async function LandingHeader() {
 
           <Link
             href="/login"
-            className="rounded-[10px] border border-[#E5D7BE] bg-white px-[18px] py-2.5 text-[15px] font-semibold text-[#1F2937] transition-colors hover:border-[#D4C5AA]"
+            className="rounded-[10px] border-2 border-[#E5D7BE] bg-white px-[18px] py-2.5 text-[15px] font-semibold text-[#1F2937] shadow-sm transition-all hover:border-[#D4C5AA] hover:shadow-md"
           >
             {t('nav.login')}
           </Link>
           <Link
             href="/try"
-            className="rounded-[10px] bg-[#6AA570] px-[18px] py-2.5 text-[15px] font-bold text-[#1F3D2A] transition-colors hover:bg-[#5A9460]"
+            className="btn-primary rounded-[10px] bg-[#6AA570] px-[18px] py-2.5 text-[15px] font-bold text-white hover:bg-[#5A9460]"
           >
             {t('nav.tryFree')}
           </Link>

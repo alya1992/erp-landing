@@ -2,6 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import { LandingContainer } from './landing-container';
 import { LandingSection } from './landing-section';
+import { ScrollReveal } from './scroll-reveal';
 
 const cards = [
   { key: 'card1', logo: '/logo/monobank-logo.png', alt: 'Monobank', size: 'size-12' },
@@ -16,32 +17,36 @@ export async function IntegrationsSection() {
   return (
     <LandingSection id="integrations" bg="pain-points">
       <LandingContainer>
-        <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
-          {t('integrations.title')}
-        </h2>
+        <ScrollReveal>
+          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
+            {t('integrations.title')}
+          </h2>
+        </ScrollReveal>
 
-        <div className="mt-10 grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-4">
+        <ScrollReveal variant="reveal-stagger" className="mt-10 grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-4">
           {cards.map(({ key, logo, alt, size }) => (
             <div
               key={key}
-              className="h-[220px] rounded-[14px] border border-[#E9DCC6] bg-white p-5 text-center"
+              className="reveal-item card-hover rounded-[14px] border border-[#E9DCC6] bg-white p-6 text-center shadow-sm"
             >
-              <Image
-                src={logo}
-                alt={alt}
-                width={64}
-                height={64}
-                className={`mx-auto rounded-[14px] ${size}`}
-              />
+              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-[#F9F5F0]">
+                <Image
+                  src={logo}
+                  alt={alt}
+                  width={64}
+                  height={64}
+                  className={`rounded-[14px] ${size}`}
+                />
+              </div>
               <h3 className="mt-4 text-xl font-bold text-[#1F2937]">
                 {t(`integrations.${key}.title`)}
               </h3>
-              <p className="mt-2 text-sm leading-[1.4] text-[#6B7280]">
+              <p className="mt-2 text-[15px] leading-[1.5] text-[#6B7280]">
                 {t(`integrations.${key}.description`)}
               </p>
             </div>
           ))}
-        </div>
+        </ScrollReveal>
       </LandingContainer>
     </LandingSection>
   );
