@@ -28,7 +28,6 @@ export default function LoginPage() {
 
   async function onSubmit(data: LoginFormData) {
     setServerError(null);
-    // Stub: simulate login attempt
     console.log('Login attempt:', data.email);
     await new Promise((resolve) => setTimeout(resolve, 1000));
     setServerError(t('invalidCredentials'));
@@ -37,16 +36,16 @@ export default function LoginPage() {
   return (
     <div className="w-full max-w-sm" style={{ animation: 'fade-in-up 0.5s ease-out both' }}>
       {/* Card */}
-      <div className="rounded-2xl border border-[#E9DCC6] bg-white/80 p-8 shadow-lg backdrop-blur-sm">
+      <div className="rounded-2xl border border-[var(--color-border)] bg-white/80 p-8 shadow-lg backdrop-blur-sm">
         {/* Header */}
         <div className="mb-8 flex flex-col items-center gap-3">
-          <div className="flex size-14 items-center justify-center rounded-2xl bg-[#6AA570] ring-4 ring-[#6AA570]/10">
+          <div className="flex size-14 items-center justify-center rounded-2xl bg-[var(--color-primary)] ring-4 ring-[var(--color-primary)]/10">
             <LogInIcon className="size-7 text-white" />
           </div>
-          <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[#1F2937]">
+          <h1 className="font-[family-name:var(--font-poppins)] text-2xl font-bold text-[var(--color-text)]">
             {t('login')}
           </h1>
-          <p className="text-sm text-[#6B7280]">{t('loginSubtitle')}</p>
+          <p className="text-sm text-[var(--color-text-muted)]">{t('loginSubtitle')}</p>
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)} noValidate className="space-y-5">
@@ -61,7 +60,7 @@ export default function LoginPage() {
           )}
 
           <div className="space-y-2">
-            <label htmlFor="email" className="text-sm font-medium text-[#1F2937]">
+            <label htmlFor="email" className="text-sm font-medium text-[var(--color-text)]">
               {t('email')}
             </label>
             <input
@@ -69,7 +68,7 @@ export default function LoginPage() {
               type="email"
               placeholder="email@example.com"
               autoComplete="email"
-              className="block w-full rounded-xl border border-[#E9DCC6] bg-[#FFF7E8]/60 px-4 py-3 text-sm text-[#1F2937] placeholder-[#B0A090] outline-none transition-all focus:border-[#6AA570] focus:bg-white focus:ring-2 focus:ring-[#6AA570]/20"
+              className="block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-3 text-sm text-[var(--color-text)] placeholder-[var(--color-text-light)] outline-none transition-all focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/20"
               {...register('email')}
               aria-invalid={!!errors.email}
             />
@@ -79,14 +78,14 @@ export default function LoginPage() {
           </div>
 
           <div className="space-y-2">
-            <label htmlFor="password" className="text-sm font-medium text-[#1F2937]">
+            <label htmlFor="password" className="text-sm font-medium text-[var(--color-text)]">
               {t('password')}
             </label>
             <input
               id="password"
               type="password"
               autoComplete="current-password"
-              className="block w-full rounded-xl border border-[#E9DCC6] bg-[#FFF7E8]/60 px-4 py-3 text-sm text-[#1F2937] placeholder-[#B0A090] outline-none transition-all focus:border-[#6AA570] focus:bg-white focus:ring-2 focus:ring-[#6AA570]/20"
+              className="block w-full rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] px-4 py-3 text-sm text-[var(--color-text)] placeholder-[var(--color-text-light)] outline-none transition-all focus:border-[var(--color-primary)] focus:bg-white focus:ring-2 focus:ring-[var(--color-primary)]/20"
               {...register('password')}
               aria-invalid={!!errors.password}
             />
@@ -98,7 +97,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#6AA570] px-5 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-[#5A9460] hover:shadow-lg active:scale-[0.98] disabled:opacity-50"
+            className="btn-primary flex w-full items-center justify-center gap-2 rounded-xl bg-[var(--color-primary)] px-5 py-3 text-sm font-bold text-white shadow-md hover:bg-[var(--color-primary-hover)] active:scale-[0.98] disabled:opacity-50"
           >
             {isSubmitting && <Loader2Icon className="size-4 animate-spin" />}
             {t('signIn')}
@@ -107,7 +106,7 @@ export default function LoginPage() {
       </div>
 
       {/* Trust line */}
-      <p className="mt-6 text-center text-xs text-[#6B7280]">
+      <p className="mt-6 text-center text-xs text-[var(--color-text-light)]">
         3DPrint ERP — {t('trustLine')}
       </p>
     </div>

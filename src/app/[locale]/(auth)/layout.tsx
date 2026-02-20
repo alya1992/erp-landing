@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Link } from '@/i18n/navigation';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   robots: { index: false, follow: false },
@@ -12,17 +13,13 @@ const inter = Inter({
   display: 'swap',
 });
 
-/**
- * Auth layout — light themed, matching landing page style.
- * No sidebar, no dashboard shell — just centered content with branding.
- */
 export default function AuthLayout({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className={`flex min-h-dvh flex-col text-[#1F2937] ${inter.variable}`}
+      className={`flex min-h-dvh flex-col text-[var(--color-text)] ${inter.variable}`}
       style={{
         '--font-sans': 'var(--font-inter)',
-        background: 'linear-gradient(180deg, #FFF9F2 0%, #FFFDF8 55%, #F7FAFF 100%)',
+        background: 'linear-gradient(180deg, var(--color-surface-alt) 0%, var(--color-surface) 55%, var(--color-surface-alt) 100%)',
       } as React.CSSProperties}
     >
       {/* Radial gradient overlay */}
@@ -30,21 +27,22 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         className="pointer-events-none fixed inset-0"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(106,165,112,0.08) 0%, rgba(139,92,246,0.06) 40%, transparent 70%)',
+            'radial-gradient(ellipse 80% 60% at 50% 0%, rgba(106,165,112,0.06) 0%, rgba(59,130,246,0.04) 40%, transparent 70%)',
         }}
       />
 
       {/* Decorative blurred circles */}
-      <div className="pointer-events-none fixed -left-32 top-1/4 size-96 rounded-full bg-[#6AA570]/5 blur-3xl" aria-hidden="true" />
-      <div className="pointer-events-none fixed -right-32 bottom-1/4 size-96 rounded-full bg-[#8B5CF6]/5 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none fixed -left-32 top-1/4 size-96 rounded-full bg-[var(--color-primary)]/5 blur-3xl" aria-hidden="true" />
+      <div className="pointer-events-none fixed -right-32 bottom-1/4 size-96 rounded-full bg-[var(--color-accent)]/5 blur-3xl" aria-hidden="true" />
 
       {/* Logo top-left */}
       <div className="relative z-10 px-6 pt-5">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[#1F2937] transition-opacity hover:opacity-80"
+          className="inline-flex items-center gap-2 font-[family-name:var(--font-poppins)] text-2xl font-bold leading-none text-[var(--color-text)] transition-opacity hover:opacity-80"
         >
-          3DPrint<span className="text-[#6AA570]">ERP</span>
+          <Image src="/logo/erp-logo.png" alt="3DPrint ERP" width={28} height={28} />
+          3DPrint<span className="text-[var(--color-primary)]">ERP</span>
         </Link>
       </div>
 

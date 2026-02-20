@@ -15,33 +15,33 @@ export async function IntegrationsSection() {
   const t = await getTranslations('Landing');
 
   return (
-    <LandingSection id="integrations" bg="pain-points">
+    <LandingSection id="integrations" bg="slate-tint">
       <LandingContainer>
         <ScrollReveal>
-          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
+          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[var(--color-text)]">
             {t('integrations.title')}
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal variant="reveal-stagger" className="mt-10 grid grid-cols-1 gap-[18px] md:grid-cols-2 xl:grid-cols-4">
+        <ScrollReveal variant="reveal-stagger" className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
           {cards.map(({ key, logo, alt, size }) => (
             <div
               key={key}
-              className="reveal-item card-hover rounded-[14px] border border-[#E9DCC6] bg-white p-6 text-center shadow-sm"
+              className="reveal-item card-hover rounded-2xl border border-[var(--color-border)] bg-white p-6 text-center shadow-sm"
             >
-              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-[#F9F5F0]">
+              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)]">
                 <Image
                   src={logo}
                   alt={alt}
                   width={64}
                   height={64}
-                  className={`rounded-[14px] ${size}`}
+                  className={`rounded-xl ${size}`}
                 />
               </div>
-              <h3 className="mt-4 text-xl font-bold text-[#1F2937]">
+              <h3 className="mt-4 text-xl font-bold text-[var(--color-text)]">
                 {t(`integrations.${key}.title`)}
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.5] text-[#6B7280]">
+              <p className="mt-2 text-[15px] leading-relaxed text-[var(--color-text-muted)]">
                 {t(`integrations.${key}.description`)}
               </p>
             </div>

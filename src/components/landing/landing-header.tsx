@@ -19,12 +19,12 @@ export async function LandingHeader() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#EEDFC7]/60 bg-white/75 shadow-[0_1px_3px_rgba(0,0,0,0.04)] backdrop-blur-xl">
-      <LandingContainer className="flex h-[84px] items-center justify-between">
+    <header className="sticky top-0 z-50 border-b border-[var(--color-border)]/50 bg-white/80 backdrop-blur-xl">
+      <LandingContainer className="flex h-[72px] items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[30px] font-bold leading-none text-[#1F2937]">
-          <Image src="/logo/erp-logo.png" alt="3DPrint ERP" width={40} height={40} />
-          3DPrint<span className="text-[#6AA570]">ERP</span>
+        <Link href="/" className="flex items-center gap-2.5 font-[family-name:var(--font-poppins)] text-[26px] font-bold leading-none text-[var(--color-text)]">
+          <Image src="/logo/erp-logo.png" alt="3DPrint ERP" width={36} height={36} />
+          3DPrint<span className="text-[var(--color-primary)]">ERP</span>
         </Link>
 
         {/* Nav links — desktop only */}
@@ -33,7 +33,7 @@ export async function LandingHeader() {
             <a
               key={link.href}
               href={link.href}
-              className="text-base font-medium text-[#6B7280] transition-colors hover:text-[#1F2937]"
+              className="text-[15px] font-medium text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
             >
               {link.label}
             </a>
@@ -41,25 +41,24 @@ export async function LandingHeader() {
         </nav>
 
         {/* Actions */}
-        <div className="hidden items-center gap-3.5 lg:flex">
-          {/* Language switcher */}
+        <div className="hidden items-center gap-3 lg:flex">
           <Link
             href="/"
             locale={otherLocale}
-            className="text-[15px] font-medium text-[#6B7280] transition-colors hover:text-[#1F2937]"
+            className="rounded-md px-2 py-1 text-sm font-medium text-[var(--color-text-muted)] transition-colors hover:bg-[var(--color-surface-muted)] hover:text-[var(--color-text)]"
           >
             {otherLocale.toUpperCase()}
           </Link>
 
           <Link
             href="/login"
-            className="rounded-[10px] border-2 border-[#E5D7BE] bg-white px-[18px] py-2.5 text-[15px] font-semibold text-[#1F2937] shadow-sm transition-all hover:border-[#D4C5AA] hover:shadow-md"
+            className="btn-secondary rounded-lg border border-[var(--color-border)] bg-white px-4 py-2 text-sm font-semibold text-[var(--color-text)]"
           >
             {t('nav.login')}
           </Link>
           <Link
             href="/try"
-            className="btn-primary rounded-[10px] bg-[#6AA570] px-[18px] py-2.5 text-[15px] font-bold text-white hover:bg-[#5A9460]"
+            className="btn-primary rounded-lg bg-[var(--color-primary)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--color-primary-hover)]"
           >
             {t('nav.tryFree')}
           </Link>

@@ -11,10 +11,10 @@ const inter = Inter({
 
 export default function LandingLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className={`landing-wrapper flex min-h-screen flex-col text-[#1F2937] ${inter.variable}`} style={{ background: 'linear-gradient(180deg, #FFF9F2 0%, #FFFDF8 55%, #F7FAFF 100%)' }}>
+    <div className={`landing-wrapper flex min-h-screen flex-col bg-[var(--color-surface-alt)] text-[var(--color-text)] ${inter.variable}`}>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[#6AA570] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-[var(--color-primary)] focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
       >
         Skip to content
       </a>

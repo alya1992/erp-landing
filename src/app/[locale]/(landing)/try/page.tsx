@@ -54,41 +54,41 @@ export default async function TryPage() {
         className="relative overflow-hidden py-20 lg:py-32"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 20%, rgba(106,165,112,0.06) 0%, transparent 70%)',
+            'radial-gradient(ellipse 80% 60% at 50% 20%, rgba(106,165,112,0.05) 0%, transparent 70%)',
         }}
       >
         {/* Decorative blurred circles */}
-        <div className="pointer-events-none absolute -left-20 top-10 size-64 rounded-full bg-[#6AA570]/5 blur-3xl" aria-hidden="true" />
-        <div className="pointer-events-none absolute -right-20 bottom-10 size-64 rounded-full bg-[#8B5CF6]/5 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -left-20 top-10 size-64 rounded-full bg-[var(--color-primary)]/5 blur-3xl" aria-hidden="true" />
+        <div className="pointer-events-none absolute -right-20 bottom-10 size-64 rounded-full bg-[var(--color-accent)]/5 blur-3xl" aria-hidden="true" />
 
         <LandingContainer className="flex flex-col items-center">
           <div className="w-full max-w-[520px] text-center">
-            <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-[#6AA570] ring-4 ring-[#6AA570]/10">
+            <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-2xl bg-[var(--color-primary)] ring-4 ring-[var(--color-primary)]/10">
               <Zap className="size-8 text-white" />
             </div>
-            <h1 className="font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937] lg:text-5xl">
+            <h1 className="font-[family-name:var(--font-poppins)] text-4xl font-bold text-[var(--color-text)] lg:text-5xl">
               {t('title')}
             </h1>
-            <p className="mt-4 text-lg font-light text-[#6B7280]">
+            <p className="mt-4 text-lg text-[var(--color-text-muted)]">
               {t('description')}
             </p>
 
             {/* Form card */}
-            <div className="mt-8 rounded-2xl border border-[#E9DCC6] bg-white/80 p-6 shadow-lg backdrop-blur-sm">
+            <div className="mt-8 rounded-2xl border border-[var(--color-border)] bg-white/80 p-6 shadow-lg backdrop-blur-sm">
               <RequestAccessForm />
             </div>
 
             {/* Benefits */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-6">
               {benefits.map(({ Icon, textKey }) => (
-                <div key={textKey} className="flex items-center justify-center gap-2 text-sm text-[#6B7280]">
-                  <Icon className="size-4 text-[#6AA570]" aria-hidden="true" />
+                <div key={textKey} className="flex items-center justify-center gap-2 text-sm text-[var(--color-text-muted)]">
+                  <Icon className="size-4 text-[var(--color-primary)]" aria-hidden="true" />
                   <span>{t(textKey)}</span>
                 </div>
               ))}
             </div>
 
-            <p className="mt-6 text-sm text-[#6B7280]">
+            <p className="mt-6 text-sm text-[var(--color-text-light)]">
               {t('privacyNote')}
             </p>
           </div>

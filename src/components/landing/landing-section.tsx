@@ -2,10 +2,9 @@ import { cn } from '@/lib/utils';
 
 const bgVariants = {
   transparent: '',
-  'pain-points': 'bg-gradient-to-b from-[#F4FBF5] to-[#EEF7EF]',
-  'how-it-works': 'bg-gradient-to-br from-[#F2FAF3] to-[#F0F6F1]',
-  integrations: 'bg-gradient-to-b from-[#F8F2FF] to-[#F3EDFA]',
-  footer: 'bg-[#F6FCF7]',
+  muted: 'bg-[var(--color-surface)]',
+  'green-tint': 'bg-gradient-to-b from-[#F0FDF4] to-[var(--color-surface-alt)]',
+  'slate-tint': 'bg-[var(--color-surface-muted)]',
 } as const;
 
 interface LandingSectionProps {
@@ -18,7 +17,7 @@ interface LandingSectionProps {
 
 export function LandingSection({ children, id, className, style, bg = 'transparent' }: LandingSectionProps) {
   return (
-    <section id={id} className={cn('scroll-mt-20 py-22', bgVariants[bg], className)} style={style}>
+    <section id={id} className={cn('scroll-mt-20 py-24', bgVariants[bg], className)} style={style}>
       {children}
     </section>
   );

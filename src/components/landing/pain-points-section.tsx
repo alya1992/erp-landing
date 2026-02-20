@@ -17,28 +17,27 @@ export async function PainPointsSection() {
   const t = await getTranslations('Landing');
 
   return (
-    <LandingSection id="pain-points" bg="pain-points">
+    <LandingSection id="pain-points" bg="slate-tint">
       <LandingContainer>
         <ScrollReveal>
-          <div className="mx-auto mb-3 h-1 w-12 rounded-full bg-[#BF9773]" />
-          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[#1F2937]">
+          <h2 className="text-center font-[family-name:var(--font-poppins)] text-4xl font-bold text-[var(--color-text)]">
             {t('painPoints.title')}
           </h2>
         </ScrollReveal>
 
-        <ScrollReveal variant="reveal-stagger" className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <ScrollReveal variant="reveal-stagger" className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
           {cards.map(({ key, Icon }) => (
             <div
               key={key}
-              className="reveal-item card-hover min-h-[200px] rounded-[14px] border border-[#E9DCC6] bg-[#FFF7E8] p-6 shadow-sm"
+              className="reveal-item card-hover min-h-[200px] rounded-2xl border border-[var(--color-border)] bg-white p-6 shadow-sm"
             >
-              <div className="icon-container icon-container--muted size-12">
-                <Icon className="size-6 text-[#6B7280]" aria-hidden="true" />
+              <div className="flex size-12 items-center justify-center rounded-xl bg-[var(--color-surface-muted)]">
+                <Icon className="size-6 text-[var(--color-text-muted)]" aria-hidden="true" />
               </div>
-              <h3 className="mt-4 text-lg font-bold text-[#1F2937]">
+              <h3 className="mt-4 text-lg font-bold text-[var(--color-text)]">
                 {t(`painPoints.${key}.title`)}
               </h3>
-              <p className="mt-2 text-base leading-[1.5] text-[#6B7280]">
+              <p className="mt-2 text-base leading-relaxed text-[var(--color-text-muted)]">
                 {t(`painPoints.${key}.description`)}
               </p>
             </div>

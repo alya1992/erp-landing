@@ -64,7 +64,7 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-label="Menu"
-        className="flex size-10 items-center justify-center text-[#1F2937]"
+        className="flex size-10 items-center justify-center text-[var(--color-text)]"
       >
         {isOpen ? (
           <X className="size-6" aria-hidden="true" />
@@ -77,14 +77,14 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
         <>
           {/* Backdrop */}
           <div
-            className="fixed inset-0 top-[84px] z-40 bg-black/20"
+            className="fixed inset-0 top-[72px] z-40 bg-black/20 backdrop-blur-sm"
             onClick={close}
             aria-hidden="true"
           />
           {/* Panel */}
           <div
             ref={panelRef}
-            className="fixed inset-x-0 top-[84px] z-50 border-b border-[#EEDFC7] bg-white/95 p-5 backdrop-blur-md"
+            className="fixed inset-x-0 top-[72px] z-50 border-b border-[var(--color-border)] bg-white/95 p-5 backdrop-blur-md"
           >
             <nav className="flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -92,7 +92,7 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
                   key={link.href}
                   href={link.href}
                   onClick={close}
-                  className="text-base text-[#6B7280] transition-colors hover:text-[#1F2937]"
+                  className="text-base text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
                 >
                   {link.label}
                 </a>
@@ -103,7 +103,7 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
                 href="/"
                 locale={otherLocale}
                 onClick={close}
-                className="text-sm text-[#6B7280] transition-colors hover:text-[#1F2937]"
+                className="text-sm text-[var(--color-text-muted)] transition-colors hover:text-[var(--color-text)]"
               >
                 {otherLocale.toUpperCase()}
               </Link>
@@ -111,7 +111,7 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
                 <Link
                   href="/dashboard"
                   onClick={close}
-                  className="rounded-[10px] bg-[#6AA570] px-5 py-2.5 text-center text-sm font-bold text-white"
+                  className="btn-primary rounded-xl bg-[var(--color-primary)] px-5 py-2.5 text-center text-sm font-bold text-white"
                 >
                   {t('nav.dashboard')}
                 </Link>
@@ -120,14 +120,14 @@ export function MobileMenu({ navLinks, otherLocale, isLoggedIn }: MobileMenuProp
                   <Link
                     href="/login"
                     onClick={close}
-                    className="rounded-[10px] border border-[#E5D7BE] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[#1F2937]"
+                    className="btn-secondary rounded-xl border border-[var(--color-border)] bg-white px-5 py-2.5 text-center text-sm font-semibold text-[var(--color-text)]"
                   >
                     {t('nav.login')}
                   </Link>
                   <Link
                     href="/try"
                     onClick={close}
-                    className="btn-primary rounded-[10px] bg-[#6AA570] px-5 py-2.5 text-center text-sm font-bold text-white"
+                    className="btn-primary rounded-xl bg-[var(--color-primary)] px-5 py-2.5 text-center text-sm font-bold text-white"
                   >
                     {t('nav.tryFree')}
                   </Link>

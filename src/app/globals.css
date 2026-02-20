@@ -2,6 +2,21 @@
 
 @theme inline {
   --font-sans: var(--font-inter);
+  --color-primary: #6AA570;
+  --color-primary-hover: #5A9460;
+  --color-primary-light: #F0FDF4;
+  --color-accent: #3B82F6;
+  --color-accent-light: #EFF6FF;
+  --color-copper: #BF9773;
+  --color-copper-light: #FEF3E2;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
+  --color-surface-muted: #F1F5F9;
+  --color-border: #E2E8F0;
+  --color-border-light: #F1F5F9;
+  --color-text: #0F172A;
+  --color-text-muted: #64748B;
+  --color-text-light: #94A3B8;
 }
 
 body {
