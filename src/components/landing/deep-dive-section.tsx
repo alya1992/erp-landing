@@ -13,38 +13,43 @@ const queueRows = [
 
 function ProductionVisual({ title }: { title: string }) {
   return (
-    <div className="flex h-[340px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-[18px] shadow-sm transition-shadow duration-300 hover:shadow-lg">
+    <div className="flex min-h-[300px] flex-col gap-3 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-[18px] lg:h-[340px]">
       <p className="text-base font-semibold text-[var(--color-text)]">{title}</p>
 
-      {/* Header */}
-      <div className="flex items-center justify-between rounded-lg bg-[var(--color-surface-muted)] px-2.5 py-1.5">
-        <span className="w-[28px] text-xs font-semibold text-[var(--color-text-light)]">Фото</span>
-        <span className="w-[80px] text-xs font-semibold text-[var(--color-text-light)]">Назва товару</span>
-        <span className="w-[70px] text-xs font-semibold text-[var(--color-text-light)]">Клієнт</span>
-        <span className="w-[50px] text-xs font-semibold text-[var(--color-text-light)]">К-сть</span>
-        <span className="w-[46px] text-xs font-semibold text-[var(--color-text-light)]">Час</span>
-        <span className="w-[40px] text-xs font-semibold text-[var(--color-text-light)]">Зам.</span>
-      </div>
-
-      {/* Rows */}
-      <div className="flex flex-1 flex-col gap-2">
-        {queueRows.map((row) => (
-          <div
-            key={row.order}
-            className="flex h-[44px] items-center justify-between rounded-lg border border-[var(--color-border)] bg-white px-2.5 transition-colors hover:bg-[var(--color-surface-muted)]"
-          >
-            <div className={`size-[22px] rounded-md ${row.color}`} />
-            <span className="w-[80px] text-[13px] font-medium text-[var(--color-text)]">{row.name}</span>
-            <span className="w-[70px] text-[13px] font-medium text-[var(--color-text-muted)]">{row.client}</span>
-            <span className="w-[50px]">
-              <span className="inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-semibold text-blue-600">
-                {row.qty}
-              </span>
-            </span>
-            <span className="w-[46px] text-[13px] font-medium text-[var(--color-text)]">{row.time}</span>
-            <span className="w-[40px] text-[13px] font-semibold text-[var(--color-primary)]">{row.order}</span>
+      {/* Scrollable table wrapper on mobile */}
+      <div className="-mx-4 overflow-x-auto px-4 sm:-mx-0 sm:px-0">
+        <div className="min-w-[420px]">
+          {/* Header */}
+          <div className="flex items-center justify-between rounded-lg bg-[var(--color-surface-muted)] px-2.5 py-1.5">
+            <span className="w-[28px] text-xs font-semibold text-[var(--color-text-light)]">Фото</span>
+            <span className="w-[80px] text-xs font-semibold text-[var(--color-text-light)]">Назва товару</span>
+            <span className="w-[70px] text-xs font-semibold text-[var(--color-text-light)]">Клієнт</span>
+            <span className="w-[50px] text-xs font-semibold text-[var(--color-text-light)]">К-сть</span>
+            <span className="w-[46px] text-xs font-semibold text-[var(--color-text-light)]">Час</span>
+            <span className="w-[40px] text-xs font-semibold text-[var(--color-text-light)]">Зам.</span>
           </div>
-        ))}
+
+          {/* Rows */}
+          <div className="mt-2 flex flex-col gap-2">
+            {queueRows.map((row) => (
+              <div
+                key={row.order}
+                className="flex h-[44px] items-center justify-between rounded-lg border border-[var(--color-border)] bg-white px-2.5 transition-colors hover:bg-[var(--color-surface-muted)]"
+              >
+                <div className={`size-[22px] rounded-md ${row.color}`} />
+                <span className="w-[80px] text-[13px] font-medium text-[var(--color-text)]">{row.name}</span>
+                <span className="w-[70px] text-[13px] font-medium text-[var(--color-text-muted)]">{row.client}</span>
+                <span className="w-[50px]">
+                  <span className="inline-block rounded-full bg-blue-50 px-2 py-0.5 text-[11px] font-semibold text-blue-600">
+                    {row.qty}
+                  </span>
+                </span>
+                <span className="w-[46px] text-[13px] font-medium text-[var(--color-text)]">{row.time}</span>
+                <span className="w-[40px] text-[13px] font-semibold text-[var(--color-primary)]">{row.order}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       <p className="text-xs font-medium text-[var(--color-text-light)]">Усього в черзі: 7 позицій (демо-дані)</p>
@@ -55,11 +60,11 @@ function ProductionVisual({ title }: { title: string }) {
 /* ── Block B visual: Payment matching ───────────────────────── */
 function PaymentsVisual({ title }: { title: string }) {
   return (
-    <div className="flex h-[340px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-[18px] shadow-sm transition-shadow duration-300 hover:shadow-lg">
+    <div className="flex min-h-[300px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-[18px] lg:h-[340px]">
       <p className="text-base font-semibold text-[var(--color-text)]">{title}</p>
 
-      {/* Two-column layout */}
-      <div className="flex flex-1 gap-3">
+      {/* Two-column on sm+, stacked on mobile */}
+      <div className="flex flex-1 flex-col gap-3 sm:flex-row">
         {/* Left: strategies */}
         <div className="flex flex-1 flex-col gap-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3.5">
           <p className="text-sm font-semibold text-[var(--color-text)]">6 стратегій розпізнавання</p>
@@ -68,17 +73,17 @@ function PaymentsVisual({ title }: { title: string }) {
           <p className="text-sm text-[var(--color-text-muted)]">✓ За телефоном клієнта</p>
         </div>
         {/* Right: QR */}
-        <div className="flex w-[184px] flex-col items-center gap-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3.5">
+        <div className="flex flex-col items-center gap-2.5 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3.5 sm:w-[184px]">
           <p className="text-[13px] font-semibold text-[var(--color-text)]">QR НБУ</p>
-          <div className="flex size-[112px] items-center justify-center rounded-xl border-2 border-[var(--color-text)] bg-[var(--color-copper)]">
-            <span className="font-[family-name:var(--font-poppins)] text-[32px] font-bold text-white">QR</span>
+          <div className="flex size-[100px] items-center justify-center rounded-xl border-2 border-[var(--color-text)] bg-[var(--color-copper)] sm:size-[112px]">
+            <span className="font-[family-name:var(--font-poppins)] text-[28px] font-bold text-white sm:text-[32px]">QR</span>
           </div>
           <p className="text-center text-xs text-[var(--color-text-muted)]">Клієнт сканує та оплачує миттєво</p>
         </div>
       </div>
 
       {/* Stat bar */}
-      <div className="flex items-center justify-between rounded-lg border border-[var(--color-border)] bg-[var(--color-accent-light)] px-3.5 py-2.5">
+      <div className="flex flex-col items-center justify-between gap-1 rounded-lg border border-[var(--color-border)] bg-[var(--color-accent-light)] px-3.5 py-2.5 sm:flex-row sm:gap-0">
         <span className="text-sm text-[var(--color-text)]">91% платежів зіставляються автоматично</span>
         <span className="font-[family-name:var(--font-poppins)] text-lg font-bold text-[var(--color-primary)]">+6.2x</span>
       </div>
@@ -95,11 +100,11 @@ const timelineSteps = [
 
 function ShippingVisual({ title }: { title: string }) {
   return (
-    <div className="flex h-[340px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-[18px] shadow-sm transition-shadow duration-300 hover:shadow-lg">
+    <div className="flex min-h-[280px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-[18px] lg:h-[340px]">
       <p className="text-base font-semibold text-[var(--color-text)]">{title}</p>
 
       {/* Summary bar */}
-      <div className="flex items-center justify-between rounded-lg border border-[var(--color-primary)]/30 bg-[var(--color-primary-light)] px-3.5 py-2.5">
+      <div className="flex flex-col items-start justify-between gap-1 rounded-lg border border-[var(--color-primary)]/30 bg-[var(--color-primary-light)] px-3.5 py-2.5 sm:flex-row sm:items-center sm:gap-0">
         <span className="text-sm text-[var(--color-text)]">ТТН 20450999821 · Нова Пошта</span>
         <span className="text-sm font-semibold text-[var(--color-primary)]">В дорозі</span>
       </div>
@@ -108,7 +113,7 @@ function ShippingVisual({ title }: { title: string }) {
       <div className="flex flex-1 flex-col gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3.5">
         {timelineSteps.map((step) => (
           <div key={step.label} className="flex items-center gap-2.5">
-            <div className={`size-3 rounded-full ${step.color}`} />
+            <div className={`size-3 shrink-0 rounded-full ${step.color}`} />
             <span className="text-sm text-[var(--color-text-muted)]">{step.label}</span>
           </div>
         ))}
@@ -129,14 +134,14 @@ const costBreakdown = [
 ];
 
 const costItems = [
-  { name: 'Настільний тримач', cost: '₴ 38', price: '₴ 85', margin: '55%', marginColor: 'text-[var(--color-primary)]' },
-  { name: 'Корпус контролера', cost: '₴ 124', price: '₴ 250', margin: '50%', marginColor: 'text-[var(--color-primary)]' },
-  { name: 'Декоративна фігурка', cost: '₴ 67', price: '₴ 120', margin: '44%', marginColor: 'text-[var(--color-copper)]' },
+  { name: 'Настільний тримач', cost: '₴38', price: '₴85', margin: '55%', marginColor: 'text-[var(--color-primary)]' },
+  { name: 'Корпус контролера', cost: '₴124', price: '₴250', margin: '50%', marginColor: 'text-[var(--color-primary)]' },
+  { name: 'Декоративна фігурка', cost: '₴67', price: '₴120', margin: '44%', marginColor: 'text-[var(--color-copper)]' },
 ];
 
 function CostingVisual({ title }: { title: string }) {
   return (
-    <div className="flex h-[340px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-[18px] shadow-sm transition-shadow duration-300 hover:shadow-lg">
+    <div className="flex min-h-[300px] flex-col gap-3 rounded-2xl border border-[var(--color-border)] bg-white p-4 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-[18px] lg:h-[340px]">
       <p className="text-base font-semibold text-[var(--color-text)]">{title}</p>
 
       {/* Stacked bar chart */}
@@ -153,7 +158,7 @@ function CostingVisual({ title }: { title: string }) {
             </div>
           ))}
         </div>
-        <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        <div className="mt-2 flex flex-wrap gap-x-3 gap-y-1 sm:gap-x-4">
           {costBreakdown.map((item) => (
             <div key={item.label} className="flex items-center gap-1.5">
               <div className={`size-2.5 rounded-full ${item.color}`} />
@@ -167,16 +172,16 @@ function CostingVisual({ title }: { title: string }) {
       <div className="flex flex-1 flex-col rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-muted)] p-3.5">
         <div className="flex items-center border-b border-[var(--color-border)] pb-1.5">
           <span className="flex-1 text-[11px] font-semibold text-[var(--color-text-light)]">Товар</span>
-          <span className="w-[60px] text-right text-[11px] font-semibold text-[var(--color-text-light)]">Собів.</span>
-          <span className="w-[60px] text-right text-[11px] font-semibold text-[var(--color-text-light)]">Ціна</span>
-          <span className="w-[50px] text-right text-[11px] font-semibold text-[var(--color-text-light)]">Маржа</span>
+          <span className="w-[48px] text-right text-[11px] font-semibold text-[var(--color-text-light)] sm:w-[60px]">Собів.</span>
+          <span className="w-[48px] text-right text-[11px] font-semibold text-[var(--color-text-light)] sm:w-[60px]">Ціна</span>
+          <span className="w-[44px] text-right text-[11px] font-semibold text-[var(--color-text-light)] sm:w-[50px]">Маржа</span>
         </div>
         {costItems.map((item) => (
           <div key={item.name} className="flex items-center border-b border-[var(--color-border-light)] py-1.5 last:border-0">
-            <span className="flex-1 text-[12px] font-medium text-[var(--color-text)]">{item.name}</span>
-            <span className="w-[60px] text-right text-[12px] text-[var(--color-text-muted)]">{item.cost}</span>
-            <span className="w-[60px] text-right text-[12px] font-semibold text-[var(--color-text)]">{item.price}</span>
-            <span className={`w-[50px] text-right text-[12px] font-bold ${item.marginColor}`}>{item.margin}</span>
+            <span className="flex-1 truncate text-[12px] font-medium text-[var(--color-text)]">{item.name}</span>
+            <span className="w-[48px] text-right text-[12px] text-[var(--color-text-muted)] sm:w-[60px]">{item.cost}</span>
+            <span className="w-[48px] text-right text-[12px] font-semibold text-[var(--color-text)] sm:w-[60px]">{item.price}</span>
+            <span className={`w-[44px] text-right text-[12px] font-bold sm:w-[50px] ${item.marginColor}`}>{item.margin}</span>
           </div>
         ))}
       </div>
@@ -204,7 +209,7 @@ export async function DeepDiveSection() {
               <span className="section-label text-[var(--color-primary)]">
                 {t('deepDive.orders.label')}
               </span>
-              <h3 className="mt-3 font-[family-name:var(--font-poppins)] text-[32px] font-bold leading-[1.2] text-[var(--color-text)]">
+              <h3 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-bold leading-[1.2] text-[var(--color-text)] sm:text-[32px]">
                 {t('deepDive.orders.title')}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-[var(--color-text-muted)]">
@@ -222,7 +227,7 @@ export async function DeepDiveSection() {
               <span className="section-label text-[var(--color-copper)]">
                 {t('deepDive.payments.label')}
               </span>
-              <h3 className="font-[family-name:var(--font-poppins)] text-[32px] font-bold leading-[1.2] text-[var(--color-text)]">
+              <h3 className="font-[family-name:var(--font-poppins)] text-2xl font-bold leading-[1.2] text-[var(--color-text)] sm:text-[32px]">
                 {t('deepDive.payments.title')}
               </h3>
               <p className="text-base leading-relaxed text-[var(--color-text-muted)]">
@@ -240,7 +245,7 @@ export async function DeepDiveSection() {
               <span className="section-label text-[var(--color-primary)]">
                 {t('deepDive.shipping.label')}
               </span>
-              <h3 className="mt-3 font-[family-name:var(--font-poppins)] text-[32px] font-bold leading-[1.2] text-[var(--color-text)]">
+              <h3 className="mt-3 font-[family-name:var(--font-poppins)] text-2xl font-bold leading-[1.2] text-[var(--color-text)] sm:text-[32px]">
                 {t('deepDive.shipping.title')}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-[var(--color-text-muted)]">
@@ -258,7 +263,7 @@ export async function DeepDiveSection() {
               <span className="section-label text-[var(--color-copper)]">
                 {t('deepDive.costing.label')}
               </span>
-              <h3 className="font-[family-name:var(--font-poppins)] text-[32px] font-bold leading-[1.2] text-[var(--color-text)]">
+              <h3 className="font-[family-name:var(--font-poppins)] text-2xl font-bold leading-[1.2] text-[var(--color-text)] sm:text-[32px]">
                 {t('deepDive.costing.title')}
               </h3>
               <p className="text-base leading-relaxed text-[var(--color-text-muted)]">

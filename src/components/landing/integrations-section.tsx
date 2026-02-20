@@ -29,7 +29,7 @@ export async function IntegrationsSection() {
               key={key}
               className="reveal-item card-hover rounded-2xl border border-[var(--color-border)] bg-white p-6 text-center shadow-sm"
             >
-              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)]">
+              <div className="mx-auto flex size-16 items-center justify-center rounded-2xl bg-[var(--color-surface-muted)]/40">
                 <Image
                   src={logo}
                   alt={alt}
